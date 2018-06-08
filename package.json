@@ -1,0 +1,25 @@
+{
+  "name": "ucipass-logger",
+  "version": "1.0.0",
+  "description": "Customizes winston based logger",
+  "main": "index.js",
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "caller": "^1.0.1",
+    "winston": "^2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucipass/logger.git"
+  },
+  "author": "ucipass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ucipass/logger/issues"
+  },
+  "homepage": "https://github.com/ucipass/logger#readme"
+}
