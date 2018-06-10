@@ -15,8 +15,8 @@ function getNewLogger(name){
     let debug_console = null
     let debug_file = null
     try {
-        debug_console = config.get("debug."+name+".debug_console")
-        debug_file = config.get("debug."+name+".debug_file")
+        debug_console = config.get(name+".debug_console")
+        debug_file = config.get(name+".debug_file")
     } catch (error) {
         debug_console = "error"
         debug_file = "error"
