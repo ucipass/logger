@@ -1,6 +1,6 @@
 const log1 = require("./index.js")("TEST-ERROR")
 const log2 = require("./index.js")("TEST-INFO")
-const log3 = require("./index.js")("TEST-DEBUG")
+const log3 = require("./index.js")()
 const log4 = require("./index.js")("TEST-SILLY")
 log3.transports.console.level = 'debug'
 log4.transports.file.level = 'silly'

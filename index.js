@@ -1,27 +1,36 @@
 const appRoot = require('app-root-path').path;
 const path = require("path")
 const logRoot = path.join( appRoot, "log" )
-var logFile = path.join( logRoot,"all-log.log" )
 const caller = require("caller")
+const config = require("config")
 const fs = require("fs")
 const winston = require("winston")
 if (!fs.existsSync(logRoot)){  console.log("Creating log directory",logRoot) ; fs.mkdirSync(logRoot); }
 
 function getNewLogger(name){
     let caller_name = path.relative(appRoot,caller())
-    let label = caller_name.replace( new RegExp(path.sep,"g") , '_')
+    let label = name ? name : caller_name.replace( new RegExp(path.sep,"g") , '_')
     let caller_file = path.join( logRoot, label+".log")
     let file = name ? path.join( logRoot,  name+".log") : caller_file
+    let debug_console = null
+    let debug_file = null
+    try {
+        debug_console = config.get("debug."+name+".debug_console")
+        debug_file = config.get("debug."+name+".debug_file")
+    } catch (error) {
+        debug_console = "error"
+        debug_file = "error"
+    }
     var options = {
         console: {
-            level: "info",
+            level: debug_console,
             handleExceptions: true,
             json: false,
             label: label,
             colorize: true,
             },
         file: {
-            level: "error",
+            level: debug_file,
             filename: file,
             handleExceptions: true,
             json: true,
