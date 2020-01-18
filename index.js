@@ -5,7 +5,7 @@ const caller = require("caller")
 const config = require("config")
 const fs = require("fs")
 const winston = require("winston")
-if (!fs.existsSync(logRoot)){  console.log("Creating log directory",logRoot) ; fs.mkdirSync(logRoot); }
+// if (!fs.existsSync(logRoot)){  console.log("Creating log directory",logRoot) ; fs.mkdirSync(logRoot); }
 
 function getNewLogger(name){
     let caller_name = path.relative(appRoot,caller())
@@ -41,7 +41,7 @@ function getNewLogger(name){
     };
     var logger =  new winston.Logger({
         transports: [
-            new winston.transports.File(options.file),
+            // new winston.transports.File(options.file),
             new winston.transports.Console(options.console)
         ],
         exitOnError: false, // do not exit on handled exceptions
