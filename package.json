@@ -1,13 +1,12 @@
 {
   "name": "ucipass-logger",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Customizes winston based logger",
   "main": "index.js",
   "dependencies": {
     "app-root-path": "^2.0.1",
     "caller": "^1.0.1",
-    "config": "^1.30.0",
-    "winston": "^2.4.2"
+    "winston": "^2.4.5"
   },
   "devDependencies": {},
   "scripts": {
